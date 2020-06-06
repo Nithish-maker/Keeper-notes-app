@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Maincontent from "./Maincontent";
 
-import Notes from "./Notes";
+import Note from "./Note";
 
 
 function App() {
@@ -15,19 +15,21 @@ function App() {
                     return [...prevNotes,newNotes];
                 });
     }
+
     return (
         <div>
             <Navbar />
             <Sidebar />
-            <Maincontent  
+            <Maincontent 
             onAdd={addNotes}
+            //onDelete={deleteItems}
             />
            {notes.map(noteItem => {
-                return <Notes 
+                return <Note 
                         title={noteItem.title}
                         content={noteItem.content}
                        />
-            })}
+            })};
 
         </div>
     );
